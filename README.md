@@ -64,17 +64,26 @@ La secrétaire peut créer une alerte médicale urgente en renseignant la nature
 # 📷 Captures d'écran
 
 * Interface de connexion
-* Tableau de bord
-* Gestion des patients
-* Gestion des médecins
-* Gestion des rendez-vous
-* Banque de sang intelligente
-* Alerte urgence
+<img width="960" height="505" alt="Capture d&#39;écran 2026-06-18 172524" src="https://github.com/user-attachments/assets/0b565f7b-3d45-4961-8e2a-84f667c5c0e1" />
+
+* Tableau de bord<img width="960" height="505" alt="Capture d&#39;écran 2026-06-18 172936" src="https://github.com/user-attachments/assets/739bf38e-8a58-4d75-b00d-3392b0a6f5ff" />
+
+* Gestion des patients<img width="960" height="504" alt="Capture d&#39;écran 2026-06-18 173004" src="https://github.com/user-attachments/assets/d32c7027-5344-4ef9-bff3-7cd7e3b5f54a" />
+
+* Gestion des médecins<img width="955" height="504" alt="Capture d&#39;écran 2026-06-18 173047" src="https://github.com/user-attachments/assets/fc455195-3ddc-48af-86f3-13dce0245db1" />
+
+* Gestion des rendez-vous<img width="960" height="505" alt="Capture d&#39;écran 2026-06-18 173100" src="https://github.com/user-attachments/assets/8f52d469-7ea4-46e8-8eac-42e9b87146be" />
+
+* Banque de sang intel
+ligente<img width="960" height="505" alt="Capture d&#39;écran 2026-06-18 173115" src="https://github.com/user-attachments/assets/c52c5435-c12e-412e-ad3e-5b6ffbc75f26" />
+
+* Alerte urgence<img width="715" height="503" alt="Capture d&#39;écran 2026-06-18 173329" src="https://github.com/user-attachments/assets/81897095-0036-4382-ac39-36da75636c68" />
+
 
 ---
 
 # 🚀 Auteur
 
-**Meryem Jaber**
+**Meryem Jaber/Alae Assakal**
 
 Projet académique réalisé dans le cadre du module JavaFX.
