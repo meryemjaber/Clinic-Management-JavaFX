@@ -1,11 +1,13 @@
 package controller;
 
 import javafx.scene.layout.BorderPane;
-
+import view.UtilisateurView;
 import view.DashboardView;
 import view.PatientView;
 import view.MedecinView;
 import view.RendezVousView;
+import view.BanqueSangView;
+import view.AlerteUrgenceView;
 
 public class MainController {
 
@@ -14,6 +16,12 @@ public class MainController {
     public MainController(BorderPane root) {
 
         this.root = root;
+
+    }
+
+    public void afficherUtilisateurs() {
+
+        root.setCenter(new UtilisateurView());
 
     }
 
@@ -38,6 +46,18 @@ public class MainController {
     public void afficherRendezVous() {
 
         root.setCenter(new RendezVousView());
+
+    }
+
+    public void afficherBanqueSang() {
+
+        root.setCenter(new BanqueSangView());
+
+    }
+
+    public void afficherAlerteUrgence() {
+
+        root.setCenter(new AlerteUrgenceView());
 
     }
 

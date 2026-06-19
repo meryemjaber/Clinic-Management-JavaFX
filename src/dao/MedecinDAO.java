@@ -155,4 +155,38 @@ public class MedecinDAO {
 
     }
 
+    public Medecin chercherParNomPrenom(String texte){
+
+        String sql =
+                "SELECT * FROM medecin WHERE CONCAT(nom,' ',prenom)=?";
+
+        try(Connection conn=Database.getConnection();
+            PreparedStatement ps=conn.prepareStatement(sql)){
+
+            ps.setString(1,texte);
+
+            ResultSet rs=ps.executeQuery();
+
+            if(rs.next()){
+
+                Medecin m=new Medecin();
+
+                m.setIdMedecin(rs.getInt("id_medecin"));
+                m.setNom(rs.getString("nom"));
+                m.setPrenom(rs.getString("prenom"));
+
+                return m;
+
+            }
+
+        }catch(Exception e){
+
+            e.printStackTrace();
+
+        }
+
+        return null;
+
+    }
+
 }

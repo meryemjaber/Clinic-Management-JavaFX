@@ -153,6 +153,38 @@ public class RendezVousDAO {
 
         return liste;
 
+
+    }
+
+    public ResultSet getRendezVousDuJour() {
+
+        try {
+
+            Connection conn = Database.getConnection();
+
+            String sql =
+                    "SELECT r.heure, " +
+                            "CONCAT(p.nom,' ',p.prenom) AS patient, " +
+                            "CONCAT(m.nom,' ',m.prenom) AS medecin, " +
+                            "r.motif " +
+                            "FROM rendez_vous r " +
+                            "JOIN patient p ON r.patient_id = p.id_patient " +
+                            "JOIN medecin m ON r.medecin_id = m.id_medecin " +
+                            "WHERE r.date_rdv = CURDATE() " +
+                            "ORDER BY r.heure";
+
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            return ps.executeQuery();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+
+        return null;
+
     }
 
 }

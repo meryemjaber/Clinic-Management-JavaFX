@@ -8,6 +8,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.*;
 import model.RendezVous;
+import controller.PatientController;
+import controller.MedecinController;
+import dao.PatientDAO;
+import dao.MedecinDAO;
+import model.Patient;
+import model.Medecin;
 
 import java.time.LocalTime;
 
@@ -23,9 +29,9 @@ public class RendezVousView extends BorderPane {
 
     private ComboBox<String> comboStatut = new ComboBox<>();
 
-    private TextField txtPatientId = new TextField();
+    private TextField txtPatient = new TextField();
 
-    private TextField txtMedecinId = new TextField();
+    private TextField txtMedecin = new TextField();
 
     private Button btnRecherche = new Button("Rechercher");
 
@@ -41,6 +47,12 @@ public class RendezVousView extends BorderPane {
 
     private RendezVousController controller =
             new RendezVousController();
+
+    private PatientController patientController =
+            new PatientController();
+
+    private MedecinController medecinController =
+            new MedecinController();
 
     private RendezVous rendezVousSelectionne = null;
 
@@ -98,6 +110,10 @@ public class RendezVousView extends BorderPane {
                 "Annulé"
         );
 
+        txtPatient.setPromptText("Nom et prénom du patient");
+
+        txtMedecin.setPromptText("Nom et prénom du médecin");
+
         txtMotif.setPrefRowCount(5);
 
         form.add(new Label("Date"),0,0);
@@ -112,11 +128,11 @@ public class RendezVousView extends BorderPane {
         form.add(new Label("Statut"),0,3);
         form.add(comboStatut,1,3);
 
-        form.add(new Label("ID Patient"),0,4);
-        form.add(txtPatientId,1,4);
+        form.add(new Label("Patient"),0,4);
+        form.add(txtPatient,1,4);
 
-        form.add(new Label("ID Médecin"),0,5);
-        form.add(txtMedecinId,1,5);
+        form.add(new Label("Médecin"),0,5);
+        form.add(txtMedecin,1,5);
 
         HBox boutons = new HBox(10);
 
@@ -179,11 +195,12 @@ public class RendezVousView extends BorderPane {
         chargerTable();
 
         table.getSelectionModel().selectedItemProperty().addListener(
-                (obs,ancien,nouveau)->{
 
-                    if(nouveau!=null){
+                (obs, ancien, nouveau) -> {
 
-                        rendezVousSelectionne=nouveau;
+                    if (nouveau != null) {
+
+                        rendezVousSelectionne = nouveau;
 
                         datePicker.setValue(
                                 nouveau.getDateRdv()
@@ -201,17 +218,31 @@ public class RendezVousView extends BorderPane {
                                 nouveau.getStatut()
                         );
 
-                        txtPatientId.setText(
-                                String.valueOf(
+                        model.Patient patient =
+                                patientController.chercherParNomPrenomId(
                                         nouveau.getPatientId()
-                                )
-                        );
+                                );
 
-                        txtMedecinId.setText(
-                                String.valueOf(
+                        if(patient != null){
+
+                            txtPatient.setText(
+                                    patient.getNom() + " " + patient.getPrenom()
+                            );
+
+                        }
+
+                        model.Medecin medecin =
+                                medecinController.chercherParNomPrenomId(
                                         nouveau.getMedecinId()
-                                )
-                        );
+                                );
+
+                        if(medecin != null){
+
+                            txtMedecin.setText(
+                                    medecin.getNom() + " " + medecin.getPrenom()
+                            );
+
+                        }
 
                     }
 
@@ -221,24 +252,66 @@ public class RendezVousView extends BorderPane {
 
         btnAjouter.setOnAction(e -> {
 
-            try {
+            try{
+
+                PatientDAO patientDAO = new PatientDAO();
+
+                MedecinDAO medecinDAO = new MedecinDAO();
+
+                Patient patient =
+                        patientDAO.chercherParNomPrenom(
+                                txtPatient.getText()
+                        );
+
+                Medecin medecin =
+                        medecinDAO.chercherParNomPrenom(
+                                txtMedecin.getText()
+                        );
+
+                if(patient==null){
+
+                    new Alert(
+                            Alert.AlertType.ERROR,
+                            "Patient introuvable."
+                    ).showAndWait();
+
+                    return;
+
+                }
+
+                if(medecin==null){
+
+                    new Alert(
+                            Alert.AlertType.ERROR,
+                            "Médecin introuvable."
+                    ).showAndWait();
+
+                    return;
+
+                }
 
                 RendezVous rdv = new RendezVous();
 
                 rdv.setDateRdv(datePicker.getValue());
 
-                rdv.setHeure(LocalTime.parse(txtHeure.getText()));
+                rdv.setHeure(
+                        java.time.LocalTime.parse(
+                                txtHeure.getText()
+                        )
+                );
 
                 rdv.setMotif(txtMotif.getText());
 
-                rdv.setStatut(comboStatut.getValue());
+                rdv.setStatut(
+                        comboStatut.getValue()
+                );
 
                 rdv.setPatientId(
-                        Integer.parseInt(txtPatientId.getText())
+                        patient.getIdPatient()
                 );
 
                 rdv.setMedecinId(
-                        Integer.parseInt(txtMedecinId.getText())
+                        medecin.getIdMedecin()
                 );
 
                 controller.ajouterRendezVous(rdv);
@@ -247,11 +320,15 @@ public class RendezVousView extends BorderPane {
 
                 viderFormulaire();
 
-            } catch (Exception ex) {
+            }
+
+            catch(Exception ex){
+
+                ex.printStackTrace();
 
                 new Alert(
                         Alert.AlertType.ERROR,
-                        "Vérifiez les données saisies."
+                        ex.getMessage()
                 ).showAndWait();
 
             }
@@ -264,6 +341,42 @@ public class RendezVousView extends BorderPane {
                 return;
 
             try {
+
+                PatientDAO patientDAO = new PatientDAO();
+
+                MedecinDAO medecinDAO = new MedecinDAO();
+
+                Patient patient =
+                        patientDAO.chercherParNomPrenom(
+                                txtPatient.getText()
+                        );
+
+                Medecin medecin =
+                        medecinDAO.chercherParNomPrenom(
+                                txtMedecin.getText()
+                        );
+
+                if(patient == null){
+
+                    new Alert(
+                            Alert.AlertType.ERROR,
+                            "Patient introuvable."
+                    ).showAndWait();
+
+                    return;
+
+                }
+
+                if(medecin == null){
+
+                    new Alert(
+                            Alert.AlertType.ERROR,
+                            "Médecin introuvable."
+                    ).showAndWait();
+
+                    return;
+
+                }
 
                 rendezVousSelectionne.setDateRdv(
                         datePicker.getValue()
@@ -282,11 +395,11 @@ public class RendezVousView extends BorderPane {
                 );
 
                 rendezVousSelectionne.setPatientId(
-                        Integer.parseInt(txtPatientId.getText())
+                        patient.getIdPatient()
                 );
 
                 rendezVousSelectionne.setMedecinId(
-                        Integer.parseInt(txtMedecinId.getText())
+                        medecin.getIdMedecin()
                 );
 
                 controller.modifierRendezVous(
@@ -301,9 +414,11 @@ public class RendezVousView extends BorderPane {
 
             } catch (Exception ex) {
 
+                ex.printStackTrace();
+
                 new Alert(
                         Alert.AlertType.ERROR,
-                        "Modification impossible."
+                        ex.getMessage()
                 ).showAndWait();
 
             }
@@ -407,9 +522,9 @@ public class RendezVousView extends BorderPane {
 
         comboStatut.setValue(null);
 
-        txtPatientId.clear();
+        txtPatient.clear();
 
-        txtMedecinId.clear();
+        txtMedecin.clear();
 
     }
 

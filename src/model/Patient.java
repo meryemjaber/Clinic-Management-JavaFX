@@ -12,15 +12,25 @@ public class Patient {
     private String telephone;
     private String adresse;
     private String groupeSanguin;
+    private String ville;
+    private boolean disponibleDon;
     private boolean actif;
+    private LocalDate dernierDon;
 
     public Patient() {
     }
 
-    public Patient(int idPatient, String nom, String prenom,
-                   LocalDate dateNaissance, String sexe,
-                   String telephone, String adresse,
-                   String groupeSanguin, boolean actif) {
+    public Patient(int idPatient,
+                   String nom,
+                   String prenom,
+                   LocalDate dateNaissance,
+                   String sexe,
+                   String telephone,
+                   String adresse,
+                   String groupeSanguin,
+                   String ville,
+                   boolean disponibleDon,
+                   boolean actif) {
 
         this.idPatient = idPatient;
         this.nom = nom;
@@ -30,6 +40,8 @@ public class Patient {
         this.telephone = telephone;
         this.adresse = adresse;
         this.groupeSanguin = groupeSanguin;
+        this.ville = ville;
+        this.disponibleDon = disponibleDon;
         this.actif = actif;
     }
 
@@ -97,6 +109,22 @@ public class Patient {
         this.groupeSanguin = groupeSanguin;
     }
 
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
+
+    public boolean isDisponibleDon() {
+        return disponibleDon;
+    }
+
+    public void setDisponibleDon(boolean disponibleDon) {
+        this.disponibleDon = disponibleDon;
+    }
+
     public boolean isActif() {
         return actif;
     }
@@ -105,8 +133,17 @@ public class Patient {
         this.actif = actif;
     }
 
+    public LocalDate getDernierDon() {
+        return dernierDon;
+    }
+
+    public void setDernierDon(LocalDate dernierDon) {
+        this.dernierDon = dernierDon;
+    }
+
     @Override
     public String toString() {
         return nom + " " + prenom;
     }
+
 }

@@ -53,4 +53,20 @@ public class MedecinController {
 
     }
 
+    public Medecin chercherParNomPrenomId(int id){
+
+        for(Medecin m : dao.getAllMedecins()){
+
+            if(m.getIdMedecin()==id){
+
+                return m;
+
+            }
+
+        }
+
+        return null;
+
+    }
+
 }

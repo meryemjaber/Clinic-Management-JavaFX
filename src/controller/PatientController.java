@@ -53,4 +53,20 @@ public class PatientController {
         );
 
     }
+
+    public Patient chercherParNomPrenomId(int id){
+
+        for(Patient p : patientDAO.getAllPatients()){
+
+            if(p.getIdPatient()==id){
+
+                return p;
+
+            }
+
+        }
+
+        return null;
+
+    }
 }

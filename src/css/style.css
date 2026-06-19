@@ -1,207 +1,160 @@
 
-
 .root{
-
-    -fx-background-color:#F4F8FB;
-
-    -fx-font-family:"Segoe UI";
-
+    -fx-background-color: #F5F7FA;
+    -fx-font-family: "Segoe UI";
 }
 
-/* =================== MENU =================== */
+/* Menu */
 
 .menu-bar{
-
-    -fx-background-color:#1565C0;
-
+    -fx-background-color: #1565C0;
 }
 
 .menu .label{
-
-    -fx-text-fill:white;
-
-    -fx-font-weight:bold;
-
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
 }
 
-/* =================== MENU GAUCHE =================== */
-
-.vbox{
-
-    -fx-background-color:#E3F2FD;
-
-}
-
-/* =================== BOUTONS =================== */
+/* Boutons */
 
 .button{
 
-    -fx-background-color:#2196F3;
+    -fx-background-color: #1976D2;
 
-    -fx-text-fill:white;
+    -fx-text-fill: white;
 
-    -fx-font-size:14px;
+    -fx-font-size: 14px;
 
-    -fx-font-weight:bold;
+    -fx-font-weight: bold;
 
-    -fx-background-radius:10;
-
-    -fx-padding:10;
+    -fx-background-radius: 12;
 
 }
 
 .button:hover{
 
-    -fx-background-color:#1565C0;
+    -fx-background-color: #0D47A1;
 
-    -fx-cursor:hand;
-
-}
-
-/* Bouton Ajouter */
-
-.button:first-child{
-
-    -fx-background-color:#4CAF50;
+    -fx-cursor: hand;
 
 }
 
-/* Bouton Modifier */
-
-.button:nth-child(2){
-
-    -fx-background-color:#FF9800;
-
-}
-
-/* Bouton Supprimer */
-
-.button:nth-child(3){
-
-    -fx-background-color:#F44336;
-
-}
-
-/* Bouton Actualiser */
-
-.button:nth-child(4){
-
-    -fx-background-color:#2196F3;
-
-}
-
-/* =================== LABEL =================== */
+/* Labels */
 
 .label{
 
-    -fx-text-fill:#0D47A1;
+    -fx-text-fill: #263238;
 
-    -fx-font-weight:bold;
+    -fx-font-size: 14px;
 
-    -fx-font-size:14px;
+    -fx-font-weight: bold;
 
 }
 
-/* =================== CHAMPS =================== */
+/* TextField */
 
 .text-field{
 
-    -fx-background-radius:8;
+    -fx-background-radius: 8;
 
-    -fx-border-radius:8;
+    -fx-border-radius: 8;
 
-    -fx-border-color:#90CAF9;
-
-}
-
-.text-area{
-
-    -fx-background-radius:8;
-
-    -fx-border-radius:8;
-
-    -fx-border-color:#90CAF9;
+    -fx-border-color: #B0BEC5;
 
 }
+
+/* ComboBox */
 
 .combo-box{
 
-    -fx-background-radius:8;
+    -fx-background-radius: 8;
+
+    -fx-border-radius: 8;
+
+    -fx-border-color: #B0BEC5;
 
 }
+
+/* DatePicker */
 
 .date-picker{
 
-    -fx-background-radius:8;
+    -fx-background-radius: 8;
+
+    -fx-border-radius: 8;
+
+    -fx-border-color: #B0BEC5;
 
 }
 
-/* =================== TABLE =================== */
+/* TextArea */
+
+.text-area{
+
+    -fx-background-radius: 8;
+
+    -fx-border-radius: 8;
+
+    -fx-border-color: #B0BEC5;
+
+}
+
+/* Table */
 
 .table-view{
 
-    -fx-background-color:white;
+    -fx-background-color: white;
 
-    -fx-border-color:#BBDEFB;
+    -fx-border-color: #CFD8DC;
 
-    -fx-border-radius:10;
+    -fx-border-radius: 10;
 
 }
 
 .table-view .column-header{
 
-    -fx-background-color:#1976D2;
+    -fx-background-color: #1565C0;
 
 }
 
 .table-view .column-header .label{
 
-    -fx-text-fill:white;
+    -fx-text-fill: white;
 
-    -fx-font-size:14px;
+    -fx-font-weight: bold;
+
+}
+
+.table-row-cell{
+
+    -fx-cell-size: 35;
 
 }
 
 .table-row-cell:selected{
 
-    -fx-background-color:#BBDEFB;
+    -fx-background-color: #BBDEFB;
 
 }
 
-/* =================== GRID =================== */
-
-.grid-pane{
-
-    -fx-background-color:white;
-
-    -fx-background-radius:15;
-
-    -fx-border-radius:15;
-
-    -fx-padding:20;
-
-    -fx-border-color:#E3F2FD;
-
-}
-
-/* =================== SPLIT =================== */
+/* SplitPane */
 
 .split-pane{
 
-    -fx-background-color:#F4F8FB;
+    -fx-background-color: #F5F7FA;
 
 }
 
-/* =================== FOOTER =================== */
+/* Footer */
 
 .hbox{
 
-    -fx-background-color:#1565C0;
+    -fx-background-color: #1565C0;
 
 }
 
 .hbox .label{
 
-    -fx-text-fill:white;
+    -fx-text-fill: white;
 
 }

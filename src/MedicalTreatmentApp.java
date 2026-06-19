@@ -1,25 +1,19 @@
+
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import view.MainView;
 
 public class MedicalTreatmentApp extends Application {
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage) throws Exception {
 
-        MainView root = new MainView();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
 
-        Scene scene = new Scene(root, 1200, 750);
+        Scene scene = new Scene(loader.load(),450,500);
 
-        scene.getStylesheets().add(
-                getClass()
-                        .getResource("/css/style.css")
-                        .toExternalForm()
-        );
-
-        stage.setTitle("Gestion d'une Clinique");
+        stage.setTitle("Connexion");
 
         stage.setScene(scene);
 

@@ -13,8 +13,9 @@ public class PatientView extends BorderPane {
     private TextField txtNom = new TextField();
     private TextField txtPrenom = new TextField();
     private DatePicker dateNaissance = new DatePicker();
+    private DatePicker dateDernierDon = new DatePicker();
     private TextField txtTelephone = new TextField();
-    private TextArea txtAdresse = new TextArea();
+    private ComboBox<String> comboVille = new ComboBox<>();
 
     private ComboBox<String> comboGroupe = new ComboBox<>();
 
@@ -81,7 +82,22 @@ public class PatientView extends BorderPane {
                 "AB+","AB-","O+","O-"
         );
 
-        txtAdresse.setPrefRowCount(8);
+        comboVille.getItems().addAll(
+                "Oujda",
+                "Berkane",
+                "Nador",
+                "Taourirt",
+                "Jerada",
+                "Figuig",
+                "Rabat",
+                "Casablanca",
+                "Fès",
+                "Marrakech",
+                "Agadir",
+                "Tanger"
+        );
+
+        comboVille.setEditable(true);
 
         form.add(new Label("Nom"),0,0);
         form.add(txtNom,1,0);
@@ -101,13 +117,16 @@ public class PatientView extends BorderPane {
         form.add(new Label("Téléphone"),0,4);
         form.add(txtTelephone,1,4);
 
-        form.add(new Label("Adresse"),0,5);
-        form.add(txtAdresse,1,5);
+        form.add(new Label("Ville"),0,5);
+        form.add(comboVille,1,5);
 
         form.add(new Label("Groupe sanguin"),0,6);
         form.add(comboGroupe,1,6);
 
-        form.add(chkActif,1,7);
+        form.add(new Label("Dernier don"),0,7);
+        form.add(dateDernierDon,1,7);
+
+        form.add(chkActif,1,8);
 
         HBox boutons = new HBox(10);
 
@@ -117,7 +136,7 @@ public class PatientView extends BorderPane {
                 btnSupprimer
         );
 
-        form.add(boutons,1,8);
+        form.add(boutons,1,9);
 
         TableColumn<Patient,Integer> colId =
                 new TableColumn<>("ID");
@@ -166,8 +185,9 @@ public class PatientView extends BorderPane {
                 txtPrenom.setText(nouveau.getPrenom());
                 dateNaissance.setValue(nouveau.getDateNaissance());
                 txtTelephone.setText(nouveau.getTelephone());
-                txtAdresse.setText(nouveau.getAdresse());
+                comboVille.setValue(nouveau.getVille());
                 comboGroupe.setValue(nouveau.getGroupeSanguin());
+                dateDernierDon.setValue(nouveau.getDernierDon());
                 chkActif.setSelected(nouveau.isActif());
 
                 if("Homme".equals(nouveau.getSexe()))
@@ -193,8 +213,9 @@ public class PatientView extends BorderPane {
                 p.setSexe("Femme");
 
             p.setTelephone(txtTelephone.getText());
-            p.setAdresse(txtAdresse.getText());
+            p.setVille(comboVille.getValue());
             p.setGroupeSanguin(comboGroupe.getValue());
+            p.setDernierDon(dateDernierDon.getValue());
             p.setActif(chkActif.isSelected());
 
             controller.ajouterPatient(p);
@@ -220,8 +241,9 @@ public class PatientView extends BorderPane {
                 patientSelectionne.setSexe("Femme");
 
             patientSelectionne.setTelephone(txtTelephone.getText());
-            patientSelectionne.setAdresse(txtAdresse.getText());
+            patientSelectionne.setVille(comboVille.getValue());
             patientSelectionne.setGroupeSanguin(comboGroupe.getValue());
+            patientSelectionne.setDernierDon(dateDernierDon.getValue());
             patientSelectionne.setActif(chkActif.isSelected());
 
             controller.modifierPatient(patientSelectionne);
@@ -319,11 +341,12 @@ public class PatientView extends BorderPane {
         txtPrenom.clear();
         dateNaissance.setValue(null);
         txtTelephone.clear();
-        txtAdresse.clear();
+        comboVille.setValue(null);
         comboGroupe.setValue(null);
         chkActif.setSelected(false);
         homme.setSelected(false);
         femme.setSelected(false);
+        dateDernierDon.setValue(null);
 
     }
 

@@ -7,6 +7,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.*;
 import model.Medecin;
+import utils.Session;
 
 public class MedecinView extends BorderPane {
 
@@ -104,6 +105,14 @@ public class MedecinView extends BorderPane {
         form.add(txtEmail,1,4);
 
         form.add(chkDisponible,1,5);
+
+        if (Session.getUtilisateur() != null &&
+                Session.getUtilisateur().getRole().equals("SECRETAIRE")) {
+
+            btnSupprimer.setVisible(false);
+            btnSupprimer.setManaged(false);
+
+        }
 
         HBox boutons = new HBox(10);
 

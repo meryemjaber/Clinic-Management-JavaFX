@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.LoginController"
+      alignment="CENTER"
+      spacing="15">
+
+    <ImageView fitWidth="120"
+               fitHeight="120"
+               preserveRatio="true">
+        <Image url="@logo.png"/>
+    </ImageView>
+
+    <Label text="NovaCare Clinic"
+           style="-fx-font-size:26;
+              -fx-font-weight:bold;
+              -fx-text-fill:#1565C0;"/>
+
+    <Label text="Système intelligent de gestion de clinique"
+           style="-fx-font-size:14;
+              -fx-text-fill:gray;"/>
+
+    <padding>
+        <Insets top="30" right="30" bottom="30" left="30"/>
+    </padding>
+
+    <Label text="Connexion" style="-fx-font-size:24px; -fx-font-weight:bold;"/>
+
+    <TextField fx:id="txtLogin"
+               promptText="Nom ou Email"
+               prefWidth="250"/>
+
+    <PasswordField fx:id="txtPassword"
+                   promptText="Mot de passe"
+                   prefWidth="250"/>
+
+    <Button text="Se connecter"
+            onAction="#seConnecter"
+            prefWidth="250"/>
+
+    <Label fx:id="lblMessage"/>
+
+</VBox>
