@@ -82,10 +82,10 @@ ligente<img width="960" height="505" alt="Capture d&#39;écran 2026-06-18 173115
 ---
 # 🎥 Démonstration
 
-Une vidéo de démonstration est disponible dans le dossier :
+Une vidéo de démonstration est disponible dans :
 
 ```
-demo/Video Project.mp4
+https://drive.google.com/file/d/1cWRHB_lIZLJI4ZXPGpvak2AeN1Y1ZF_v/view?usp=sharing
 ```
 ## 📄 Rapport du projet
 
