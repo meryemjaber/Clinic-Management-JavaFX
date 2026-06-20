@@ -91,7 +91,7 @@ demo/Video Project.mp4
 
 Le rapport complet du projet est disponible dans le dossier **rapport/**.
 
-📄 `rapport/Rapport_Gestion_Clinique_JavaFX.pdf`
+📄 `Rapport_Gestion_Clinique_JavaFX.pdf`
 
 ---
 ---
