@@ -79,7 +79,31 @@ ligente<img width="960" height="505" alt="Capture d&#39;écran 2026-06-18 173115
 
 * Alerte urgence<img width="715" height="503" alt="Capture d&#39;écran 2026-06-18 173329" src="https://github.com/user-attachments/assets/81897095-0036-4382-ac39-36da75636c68" />
 
+---
+# 🎥 Démonstration
 
+Une vidéo de démonstration est disponible dans le dossier :
+
+```
+demo/Video Project.mp4
+```
+# 🚀 Installation
+
+1. Cloner le projet
+
+```bash
+git clone https://github.com/meryemjaber/Clinic-Management-JavaFX.git
+```
+
+2. Ouvrir le projet avec IntelliJ IDEA
+
+3. Configurer la base de données MySQL
+
+4. Exécuter :
+
+```
+MedicalTreatmentApp.java
+```
 ---
 
 # 🚀 Auteur
