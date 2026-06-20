@@ -91,7 +91,7 @@ https://drive.google.com/file/d/1cWRHB_lIZLJI4ZXPGpvak2AeN1Y1ZF_v/view?usp=shari
 
 Le rapport complet du projet est disponible dans le dossier **rapport/**.
 
-📄 `Rapport_Gestion_Clinique_JavaFX.pdf`
+ https://drive.google.com/file/d/10Z81jRCyVQAJjhOdz_0WGMYA8vU2-5cx/view?usp=sharing
 
 ---
 ---
