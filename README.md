@@ -84,9 +84,8 @@ ligente<img width="960" height="505" alt="Capture d&#39;écran 2026-06-18 173115
 
 Une vidéo de démonstration est disponible dans :
 
-```
 https://drive.google.com/file/d/1cWRHB_lIZLJI4ZXPGpvak2AeN1Y1ZF_v/view?usp=sharing
-```
+
 ## 📄 Rapport du projet
 
 Le rapport complet du projet est disponible dans le dossier **rapport/**.
