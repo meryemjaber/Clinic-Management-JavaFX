@@ -87,6 +87,14 @@ Une vidéo de démonstration est disponible dans le dossier :
 ```
 demo/Video Project.mp4
 ```
+## 📄 Rapport du projet
+
+Le rapport complet du projet est disponible dans le dossier **rapport/**.
+
+📄 `rapport/Rapport_Gestion_Clinique_JavaFX.pdf`
+
+---
+---
 # 🚀 Installation
 
 1. Cloner le projet
